@@ -1,3 +1,12 @@
+/*
+ * File: CalcuLatte\Form1.cs
+ * CalcuLatte Version 1.1
+ * Author: Sira Pornsiriprasert
+ * MIT License https://psira.mit-license.org/
+ */
+
+using Espresso;
+
 namespace CalcuLatte
 {
     public partial class Form1 : Form
@@ -82,12 +91,15 @@ namespace CalcuLatte
 
         private void buttonEq_Click(object sender, EventArgs e)
         {
-            string line = textBox1.Text + " = " + calc(textBox1.Text.Replace(" ", string.Empty));
-            textBox1.Text = line;
-            textBox2.AppendText(line);
-            textBox2.AppendText(Environment.NewLine);
-            calced = true;
-            justOpted = false;
+            try
+            {
+                string line = textBox1.Text + " = " + new Expression(textBox1.Text).Eval();
+                textBox1.Text = line;
+                textBox2.AppendText(line);
+                textBox2.AppendText(Environment.NewLine);
+                calced = true;
+                justOpted = false;
+            } catch (ArgumentNullException) { }
         }
 
         private void buttonDiv_Click(object sender, EventArgs e)
@@ -155,61 +167,34 @@ namespace CalcuLatte
             textBox2.Text = "";
         }
 
-        private static string calc(string mathStr)
-        {
-            char[] operators = { '+', '-', '*', '/', '%' };
-            if (mathStr[0] == '-')
-            {
-                mathStr = "0" + mathStr;
-            }
-            float[] nums = Array.ConvertAll<string, float>(ReplaceAll(mathStr, operators).Split("|"), float.Parse);
-            float output = nums[0];
-            int index = 1;
-
-            foreach (char character in mathStr)
-            {
-                switch (character)
-                {
-                    case '+':
-                        output += nums[index];
-                        index++;
-                        break;
-                    case '-':
-                        output -= nums[index]; ;
-                        index++;
-                        break;
-                    case '*':
-                        output *= nums[index];
-                        index++;
-                        break;
-                    case '/':
-                        output /= nums[index];
-                        index++;
-                        break;
-                    case '%':
-                        output %= nums[index];
-                        index++;
-                        break;
-                }
-                
-            }
-
-            return output.ToString();
-        }
-
-        public static string ReplaceAll(string str, char[] re)
-        {
-            string output = str;
-            foreach (char i in re)
-            {
-                output = output.Replace(i, '|');
-            }
-            return output;
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonE_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText("E");
+        }
+
+        private void buttonDot_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText(".");
+        }
+
+        private void buttonPower_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText("^");
+        }
+
+        private void buttonOpenParen_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText("(");
+        }
+
+        private void buttonCloseParen_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText(")");
         }
     }
 }

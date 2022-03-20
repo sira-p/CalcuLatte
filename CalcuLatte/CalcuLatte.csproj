@@ -8,4 +8,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Espresso">
+      <HintPath>..\..\Espresso\Espresso\bin\Release\net6.0\Espresso.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

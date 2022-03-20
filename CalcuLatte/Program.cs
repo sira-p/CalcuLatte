@@ -1,3 +1,10 @@
+/*
+ * File: CalcuLatte\Program.cs
+ * CalcuLatte Version 1.1
+ * Author: Sira Pornsiriprasert
+ * MIT License https://psira.mit-license.org/
+ */
+
 namespace CalcuLatte
 {
     internal static class Program
@@ -8,10 +15,10 @@ namespace CalcuLatte
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+
         }
     }
 }
