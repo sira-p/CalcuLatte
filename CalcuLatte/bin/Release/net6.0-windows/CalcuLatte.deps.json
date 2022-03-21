@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CalcuLatte/1.0.0": {
+        "dependencies": {
+          "Espresso": "1.0.0.0"
+        },
+        "runtime": {
+          "CalcuLatte.dll": {}
+        }
+      },
+      "Espresso/1.0.0.0": {
+        "runtime": {
+          "Espresso.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Antlr4.Runtime/4.6.0.0": {
+        "runtime": {
+          "Antlr4.Runtime.dll": {
+            "assemblyVersion": "4.6.0.0",
+            "fileVersion": "4.6.6.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CalcuLatte/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Espresso/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Antlr4.Runtime/4.6.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
